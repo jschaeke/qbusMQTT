@@ -25,8 +25,10 @@ my $mqtt_hostname = $cfg->param('MQTT.hostname');
 my $mqtt_port     = $cfg->param('MQTT.port') + 0;
 my $mqtt_topic    = $cfg->param('MQTT.topic');
 
-my @state : shared      = (-1) x 60;
-my @deviceType : shared = (-1) x 60;
+my $qbus_max_devices = $cfg->param('EQOWeb.maxDevices') + 0;
+
+my @state : shared      = (-1) x $qbus_max_devices;
+my @deviceType : shared = (-1) x $qbus_max_devices;
 
 # Test initialize
 $objQbus = EQOweb->new(

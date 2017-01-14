@@ -7,3 +7,4 @@ topic=qbus/
 QbusCTLIP=qbusIP.ddns.net
 userName=qbus
 password=letmein
+maxDevices=60

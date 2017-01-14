@@ -10,7 +10,9 @@
 # CHANGELOG                                                                  #
 # ---------                                                                  #
 # 2014/12/01 : Version 1.0                                                   #
-#	* Initial release                                                    #
+#	* Initial release  														 #
+# 2016/01/12 : Version 1.0.1												 #
+#   * Adapted for use with MQTT  (Jeroen Schae                               #
 ##############################################################################
 package EQOweb;
 

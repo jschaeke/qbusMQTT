@@ -345,7 +345,7 @@ sub SetStatusByChannelID
 	# Check the response
 	($self->{Debug}) && print("Checking QBus controller response ...\n");
 	# Check the response
-	my $hash_ref = $objJSON->decode($objResponse->content);
+	my $hash_ref = $objJSON->allow_nonref->decode($objResponse->content);
 	if ($hash_ref->{"Type"} == $QBusCommands{"ERROR"})
 	{
 		$self->{LastError} = "The following error was received from QBus controller : " . GetCTLErrorDescription($hash_ref->{"Value"}->{"Error"});

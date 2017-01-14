@@ -172,9 +172,9 @@ sub out {
 		if ( $state[$ChannelID] != $Status ) {
 			print(
 				"MQTT->QBUS: " . $ChannelID . " " . $convertedStatus . "\n" );
+				$Status = $objQbus->SetStatusByChannelID($ChannelID, $convertedStatus );
 		}
 
-	   	$Status = $objQbus->SetStatusByChannelID($ChannelID, $convertedStatus );
 
 		#Immediately broadcast updated status
 		#

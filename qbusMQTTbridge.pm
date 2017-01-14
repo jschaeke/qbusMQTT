@@ -170,9 +170,8 @@ sub out {
   		 	#print("in: converted dimmer " . $Status . " -> " . $convertedStatus . "; ");
 		}
 		if ( $state[$ChannelID] != $Status ) {
-			print(
-				"MQTT->QBUS: " . $ChannelID . " " . $convertedStatus . "\n" );
-				$Status = $objQbus->SetStatusByChannelID($ChannelID, $convertedStatus );
+			print("MQTT->QBUS: " . $ChannelID . " " . $convertedStatus . "\n" );
+			$Status = $objQbus->SetStatusByChannelID($ChannelID, $convertedStatus );
 		}
 
 
@@ -186,7 +185,9 @@ sub out {
 }
 
 #start both threads
-my $thr1 = threads->new( \&out );
-my $thr2 = threads->new( \&in );
+my $thr1 = threads->new( \&in );
+#Sleep to allow the state array to be populated
+sleep(10);
+my $thr2 = threads->new( \&out );
 $thr1->join;
 $thr2->join;

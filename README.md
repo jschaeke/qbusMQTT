@@ -29,3 +29,8 @@ install Module::Build
 install inc::latest
 install WebSphere::MQTT::Client
 install Config::Simple
+
+#Autostart ubuntu
+cp qbusMQTT_init.d /etc/init.d/qbusMQTT
+chmod +x /etc/init.d/qbusMQTT
+sudo systemctl enable qbusMQTT

@@ -2,13 +2,13 @@
 A Qbus EQOweb to MQTT bridge
 
 #Purpose
-This perl script acts a bridge between an MQTT broker and a Qbus home automation system (Ecoweb). By doing so, Qbus can be integrated into home automation software solutions such as Domogik, OpenHab, Domoticz,... 
+This perl script acts a bridge between an MQTT broker and a Qbus home automation system (Eqoweb). By doing so, Qbus can be integrated into home automation software solutions such as Domogik, OpenHab, Domoticz,... 
 
 #Documentation
 None so far
 
 #Installation
-Install perl with all the necessary dependencies (TODO for me to add here), create a qbusMQTT.ini with the properties of the MQTT broker (such as Mosquitto) and Ecoweb.
+Install perl with all the necessary dependencies (TODO for me to add here), create a qbusMQTT.ini with the properties of the MQTT broker (such as Mosquitto) and Eqoweb.
 
 #Current state
 The code has not been tested yet. 

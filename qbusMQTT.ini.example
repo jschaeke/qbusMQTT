@@ -1,0 +1,9 @@
+[MQTT]
+hostname='192.168.1.30'
+port=1883
+topic=qbus/
+
+[EQOWeb]
+QbusCTLIP=qbusIP.ddns.net
+userName=qbus
+password=letmein

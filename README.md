@@ -31,6 +31,7 @@ install WebSphere::MQTT::Client
 install Config::Simple
 
 #Autostart ubuntu
+chmod +x ./qbusMQTTbridge.pm
 cp qbusMQTT_init.d /etc/init.d/qbusMQTT
 chmod +x /etc/init.d/qbusMQTT
 sudo systemctl enable qbusMQTT

@@ -31,6 +31,7 @@ case "$1" in
   start)
     echo "Starting script qbusmqtt "
     sleep 10 
+    cd opt/dmg/qbusMQTT
     /opt/dmg/qbusMQTT/qbusMQTTbridge.pm  &
     ;;
   stop)

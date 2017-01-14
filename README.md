@@ -34,4 +34,7 @@ I want to thank Bart Boelaert for publishing the initial library I've included i
 	chmod +x ./qbusMQTTbridge.pm
 	cp qbusMQTT_init.d /etc/init.d/qbusMQTT
 	chmod +x /etc/init.d/qbusMQTT
+	sudo chown root:root /etc/init.d/qbusMQTT
+	sudo chmod 755 /etc/init.d/qbusMQTT
 	sudo update-rc.d qbusMQTT defaults
+	sudo update-rc.d qbusMQTT enable

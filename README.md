@@ -52,5 +52,5 @@ sudo update-rc.d qbusMQTT defaults
 sudo update-rc.d qbusMQTT enable
 ```
 
-#Future
+# sFuture
 Rewrite to node.js

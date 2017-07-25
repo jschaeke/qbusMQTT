@@ -2,10 +2,12 @@
 A Qbus EQOweb to MQTT bridge
 
 # Purpose
-This perl script acts a bridge between an MQTT broker and a Qbus home automation system (Eqoweb). By doing so, Qbus can be integrated into home automation software solutions such as Domogik, OpenHab, Domoticz,... 
+This perl script acts a bridge between an MQTT broker and a Qbus home automation system (Eqoweb). 
+By doing so, Qbus can be integrated into home automation software solutions such as Domogik, OpenHab or Domoticz.
+Or with Node-RED logic can be programmed with flows and other online services can be wired such as IFTTT, PushOver, Alexa.
 
 # Documentation
-None so far
+None so far, just this readme.
 
 # Current state
 This code has not been thoroughly tested yet, it needs cleaning such as removal of print statements.
@@ -15,10 +17,11 @@ trigger a Qbus change. However, in case the device state remains the same or whe
 the message is filtered out. 
 
 # Thanks
-I want to thank Bart Boelaert for publishing the initial library I've included into this project (http://bartboelaert.blogspot.be/2015/01/interfacing-qbus-building-intelligence.html). Sorry Bart if I messed it up, I am not a perl coder. This was just a little project to help a friend with a Qbus installation..
+I want to thank Bart Boelaert for publishing the initial library I've included into this project (http://bartboelaert.blogspot.be/2015/01/interfacing-qbus-building-intelligence.html). 
+Sorry Bart if I messed it up, I am not a perl coder. This was just a little project to help a friend with a Qbus installation.
 
 # Installation
-Install perl with all the necessary dependencies, create a qbusMQTT.ini with the properties of the MQTT broker (e.g. Mosquitto) and Eqoweb.
+Install perl with all the necessary dependencies, create a qbusMQTT.ini with the properties of the MQTT broker (e.g. Mosquitto) and Eqoweb (example provided).
 
 ## Install instructions for Perl dependencies
 ```bash
@@ -49,3 +52,5 @@ sudo update-rc.d qbusMQTT defaults
 sudo update-rc.d qbusMQTT enable
 ```
 
+#Future
+Rewrite to node.js

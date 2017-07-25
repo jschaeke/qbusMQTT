@@ -8,3 +8,4 @@ QbusCTLIP=qbusIP.ddns.net
 userName=qbus
 password=letmein
 maxDevices=60
+excludedDevices=[1,12,16,17,32,33,39,40,41,42,43,44,45]

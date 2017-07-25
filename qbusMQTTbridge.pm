@@ -1,5 +1,6 @@
 #! /usr/bin/perl -w
 use strict;
+use warnings;
 
 use BB::Qbus::EQOweb;
 
@@ -26,6 +27,7 @@ my $mqtt_port     = $cfg->param('MQTT.port') + 0;
 my $mqtt_topic    = $cfg->param('MQTT.topic');
 
 my $qbus_max_devices = $cfg->param('EQOWeb.maxDevices') + 0;
+my @excludedDevices : shared = $cfg->param('EQOWeb.excludedDevices');
 
 my @state : shared      = (-1) x $qbus_max_devices;
 my @deviceType : shared = (-1) x $qbus_max_devices;
@@ -160,6 +162,7 @@ sub out {
 		##################CONVERSION
 		my $Status          = $resa[1];
 		my $convertedStatus = $Status;
+        my $excluded = $ChannelID ~~ @excludedDevices;
 
 		if ( $deviceType[$ChannelID] == $QBusChannelTypes{"TOGGLE"} ) {
 			$convertedStatus = floor( $Status * 255 );
@@ -169,11 +172,13 @@ sub out {
 			$convertedStatus = ceil( $Status * 2.55 );
   		 	#print("in: converted dimmer " . $Status . " -> " . $convertedStatus . "; ");
 		}
-		if ( $state[$ChannelID] != $Status ) {
+        if ( $excluded ) {
+            print("MQTT->QBUS: " . $ChannelID . " ignored as marked exluded\n" );
+        }
+        elsif ( $state[$ChannelID] != $Status ) {
 			print("MQTT->QBUS: " . $ChannelID . " " . $convertedStatus . "\n" );
 			$Status = $objQbus->SetStatusByChannelID($ChannelID, $convertedStatus );
 		}
-
 
 		#Immediately broadcast updated status
 		#

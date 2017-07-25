@@ -1,22 +1,26 @@
 # QbusMQTT
 A Qbus EQOweb to MQTT bridge
 
-#Purpose
+# Purpose
 This perl script acts a bridge between an MQTT broker and a Qbus home automation system (Eqoweb). By doing so, Qbus can be integrated into home automation software solutions such as Domogik, OpenHab, Domoticz,... 
 
-#Documentation
+# Documentation
 None so far
 
-#Installation
-Install perl with all the necessary dependencies, create a qbusMQTT.ini with the properties of the MQTT broker (e.g. Mosquitto) and Eqoweb.
+# Current state
+This code has not been thoroughly tested yet, it needs cleaning such as removal of print statements.
+Each device is referenced by its channelId on a MQTT topic such as qbus/1. There's only one topic per device and it's 
+bi-directional: Qbus state changes are published to MQTT but also MQTT messages on the device topic can 
+trigger a Qbus change. However, in case the device state remains the same or when it's part of the excludedDevices array, 
+the message is filtered out. 
 
-#Current state
-The code has not been thoroughly tested yet, it needs cleaning such as removal of print statements.
-
-#Thanks
+# Thanks
 I want to thank Bart Boelaert for publishing the initial library I've included into this project (http://bartboelaert.blogspot.be/2015/01/interfacing-qbus-building-intelligence.html). Sorry Bart if I messed it up, I am not a perl coder. This was just a little project to help a friend with a Qbus installation..
 
-#Perl dependencies
+# Installation
+Install perl with all the necessary dependencies, create a qbusMQTT.ini with the properties of the MQTT broker (e.g. Mosquitto) and Eqoweb.
+
+## Install instructions for Perl dependencies
 ```bash
 sudo perl -MCPAN -eshell
 ```
@@ -34,7 +38,7 @@ install WebSphere::MQTT::Client
 install Config::Simple
 ```
 
-#Autostart ubuntu
+## Autostart in Ubuntu
 ```bash
 chmod +x ./qbusMQTTbridge.pm
 cp qbusMQTT_init.d /etc/init.d/qbusMQTT
@@ -44,3 +48,4 @@ sudo chmod 755 /etc/init.d/qbusMQTT
 sudo update-rc.d qbusMQTT defaults
 sudo update-rc.d qbusMQTT enable
 ```
+

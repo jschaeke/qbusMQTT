@@ -17,24 +17,30 @@ The code has not been thoroughly tested yet, it needs cleaning such as removal o
 I want to thank Bart Boelaert for publishing the initial library I've included into this project (http://bartboelaert.blogspot.be/2015/01/interfacing-qbus-building-intelligence.html). Sorry Bart if I messed it up, I am not a perl coder. This was just a little project to help a friend with a Qbus installation..
 
 #Perl dependencies
-    sudo perl -MCPAN -eshell
-    install LWP::UserAgent
-    install HTTP::Cookies
-    install HTTP::Request::Common
-	install JSON
-	install Data::Dumper
-	install Carp
-	install Switch
-	install Module::Build
-	install inc::latest
-	install WebSphere::MQTT::Client
-	install Config::Simple
+```bash
+sudo perl -MCPAN -eshell
+```
+```perl5
+install LWP::UserAgent
+install HTTP::Cookies
+install HTTP::Request::Common
+install JSON
+install Data::Dumper
+install Carp
+install Switch
+install Module::Build
+install inc::latest
+install WebSphere::MQTT::Client
+install Config::Simple
+```
 
 #Autostart ubuntu
-	chmod +x ./qbusMQTTbridge.pm
-	cp qbusMQTT_init.d /etc/init.d/qbusMQTT
-	chmod +x /etc/init.d/qbusMQTT
-	sudo chown root:root /etc/init.d/qbusMQTT
-	sudo chmod 755 /etc/init.d/qbusMQTT
-	sudo update-rc.d qbusMQTT defaults
-	sudo update-rc.d qbusMQTT enable
+```bash
+chmod +x ./qbusMQTTbridge.pm
+cp qbusMQTT_init.d /etc/init.d/qbusMQTT
+chmod +x /etc/init.d/qbusMQTT
+sudo chown root:root /etc/init.d/qbusMQTT
+sudo chmod 755 /etc/init.d/qbusMQTT
+sudo update-rc.d qbusMQTT defaults
+sudo update-rc.d qbusMQTT enable
+```

@@ -8,13 +8,15 @@ Or with Node-RED logic can be programmed with flows and other online services ca
 
 # Documentation
 None so far, just this readme.
+Each device is referenced by its channelId on a MQTT topic such as qbus/1. There's only one topic per device and it's
+bi-directional: Qbus state changes are published to MQTT but also MQTT messages on the device topic can
+trigger a Qbus change. However, in case the device state remains the same or when it's part of the excludedDevices array,
+the message is filtered out.
 
 # Current state
-This code has not been thoroughly tested yet, it needs cleaning such as removal of print statements.
-Each device is referenced by its channelId on a MQTT topic such as qbus/1. There's only one topic per device and it's 
-bi-directional: Qbus state changes are published to MQTT but also MQTT messages on the device topic can 
-trigger a Qbus change. However, in case the device state remains the same or when it's part of the excludedDevices array, 
-the message is filtered out. 
+This code has not been thoroughly tested yet as I personally don't have Qbus hardware, it needs cleaning such as removal of print statements. 
+So far I've heard it runs quite stable but it seems a keep-alive request need to be sent to assure the connection remains open (otherwise a delay
+upon a request to QBus can be encountered). 
 
 # Thanks
 I want to thank Bart Boelaert for publishing the initial library I've included into this project (http://bartboelaert.blogspot.be/2015/01/interfacing-qbus-building-intelligence.html). 
@@ -48,8 +50,9 @@ cp qbusMQTT_init.d /etc/init.d/qbusMQTT
 chmod +x /etc/init.d/qbusMQTT
 sudo chown root:root /etc/init.d/qbusMQTT
 sudo chmod 755 /etc/init.d/qbusMQTT
-sudo update-rc.d qbusMQTT defaults
-sudo update-rc.d qbusMQTT enable
+cd /etc/init.d
+sudo update-rc.d qbusMqtt defaults 97 03
+sudo update-rc.d qbusMqtt enable
 ```
 
 # Future

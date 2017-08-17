@@ -14,7 +14,7 @@ trigger a Qbus change. However, in case the device state remains the same or whe
 the message is filtered out.
 
 # Current state
-This code has not been thoroughly tested yet as I personally don't have Qbus hardware, it needs cleaning such as removal of print statements. 
+This code has not been thoroughly tested yet as I personally don't have Qbus hardware, it needs cleaning like removal of print statements. 
 So far I've heard it runs quite stable but it seems a keep-alive request need to be sent to assure the connection remains open (otherwise a delay
 upon a request to QBus can be encountered). 
 

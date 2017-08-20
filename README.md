@@ -15,8 +15,8 @@ the message is filtered out.
 
 # Current state
 This code has not been thoroughly tested yet as I personally don't have Qbus hardware, it needs cleaning like removal of print statements. 
-So far I've heard it runs quite stable but it seems a keep-alive request need to be sent to assure the connection remains open (otherwise a delay
-upon a request to QBus can be encountered). 
+So far I've heard it runs quite stable but there's a delay from EQOweb to mqtt due to the
+fact EQOweb is polled.
 
 # Thanks
 I want to thank Bart Boelaert for publishing the initial library I've included into this project (http://bartboelaert.blogspot.be/2015/01/interfacing-qbus-building-intelligence.html). 

@@ -24,7 +24,7 @@ Sorry Bart if I messed it up, I am not a perl coder. This was just a little proj
 
 # Installation
 Create a qbusMQTT.ini with the properties of the MQTT broker (e.g. Mosquitto) and Eqoweb (example provided).
-Either build an image with Docker (note provided example is arm64v8) or install perl with all the necessary dependencies with the instructions below.
+Either build an image with Docker (provided example starts from arm64v8 architecture) or install perl with all the necessary dependencies with the instructions below.
 
 ## Install instructions for Perl dependencies
 ```bash

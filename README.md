@@ -43,7 +43,7 @@ install inc::latest
 install WebSphere::MQTT::Client
 install Config::Simple
 install fork
-FindBin::lib
+install FindBin::lib
 ```
 
 ## Autostart in Ubuntu

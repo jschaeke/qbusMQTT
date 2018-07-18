@@ -25,7 +25,8 @@ I want to thank Bart Boelaert for publishing the initial library I've included i
 Sorry Bart if I messed it up, I am not a perl coder. This was just a little project to help a friend with a Qbus installation.
 
 # Installation
-Install perl with all the necessary dependencies, create a qbusMQTT.ini with the properties of the MQTT broker (e.g. Mosquitto) and Eqoweb (example provided).
+Create a qbusMQTT.ini with the properties of the MQTT broker (e.g. Mosquitto) and Eqoweb (example provided).
+Either build an image with Docker (provided example starts from arm64v8 architecture) or install perl with all the necessary dependencies with the instructions below.
 
 ## Install instructions for Perl dependencies
 ```bash
@@ -43,6 +44,8 @@ install Module::Build
 install inc::latest
 install WebSphere::MQTT::Client
 install Config::Simple
+install fork
+install FindBin::lib
 ```
 
 ## Autostart in Ubuntu

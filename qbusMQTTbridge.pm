@@ -2,10 +2,11 @@
 use strict;
 use warnings;
 
+use FindBin::libs;
 use BB::Qbus::EQOweb;
 
-use threads;
-use threads::shared;
+use forks;
+use forks::shared;
 use JSON;
 use WebSphere::MQTT::Client;
 use Config::Simple;
